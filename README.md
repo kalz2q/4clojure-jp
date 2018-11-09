@@ -3818,18 +3818,14 @@ f vs
 ```
 
 問題195 Parentheses... Again;; 括弧再び
-bookmark
 
-リスプ系の言語ではバランスしたカッコが特徴的です。
-In a family of languages like Lisp, having balanced parentheses is a defining feature of the language. Luckily, Lisp has almost no syntax, except for these "delimiters" -- and that hardly qualifies as "syntax", at least in any useful computer programming sense.
+リスプ系の言語ではバランスしたカッコが特徴的です。よいことにこの区切り以外はLispはほとんど文法がありません。通常の役に立つプログラミング言語という意味では文法と呼ぶに値しない。
 
-It is not a difficult exercise to find all the combinations of well-formed parentheses if we only have N pairs to work with. For instance, if we only have 2 pairs, we only have two possible combinations: "()()" and "(())". Any other combination of length 4 is ill-formed. Can you see why?
+正しく使われたカッコの組合せを見つけるという課題はもしNペアと限定されるなら難しくはありません。例えば2ペアとすると可能性のある組合せは"()()"と"(())"です。その他の長さNの組合せは不正です。なぜだかわかりますか？
 
-Generate all possible combinations of well-formed parentheses of length 2n (n pairs of parentheses). For this problem, we only consider '(' and ')', but the answer is similar if you work with only {} or only [].
+長さ2n(nペアのカッコ)の正しいカッコの組合せを生成する関数を作ります。この問題では'('と')'だけを扱いますが、'{}'でも'[]'でも同じです。
 
-There is an interesting pattern in the numbers!
-
-
+数におもしろいパターンがありますよ！
 
 ```
 (= [#{""} #{"()"} #{"()()" "(())"}] (map (fn [n] (__ n)) [0 1 2]))
@@ -3862,6 +3858,7 @@ There is an interesting pattern in the numbers!
 
 ツリーのノードはその子とその親に繋がっている。ツリーのノードを引っ張っルートポジションに持っていき、その他の連結はまったくかわらないと想像して見て下さい。
 
+```
        a
    b---+---i
  c-+-f   j-+-m
@@ -3875,9 +3872,11 @@ d--e--b
   g+h    i
        j-+-m
       k+l n+o
+```
 
 もう二分木ではなくなっていることに注意して下さい。Cは3個の連結を持っています。2つの子と1つの親です。ノードをベクトルとして表し、最小でも自分自身の名前を表す要素が1つあります。その後の要素は子を表します。子は順序付けられているので返されるツリーは子の順序を維持することと古い親のノードがあれば右側にアペンドされることは重要な点です。関数は2つの引数が与えられます。1つは新たにルートになるノード、で2つめは変換されるツリーです。
 
+```
 (= '(n)
    (__ 'n '(n)))
 
@@ -3971,6 +3970,7 @@ d--e--b
                (m
                  (n)
                  (o))))))
+```
 
 解答
 ```clojure
@@ -3989,6 +3989,7 @@ d--e--b
             (let [filtered-children (filter #(nil? (s %)) (concat (find-children r t) (find-parent r t)))]
               (cons r (map #(step % t (into s filtered-children)) filtered-children))))]
     (step root tree #{root})))
+```
 
 問題140 Veitch, Please! ;; カルノー図またはベイチ図
 
@@ -3996,6 +3997,7 @@ d--e--b
 
 先に進む前に、WikipediaのK-Mapsを読むといいかもしれない。
 
+```
 (= (__ #{#{'a 'B 'C 'd}
          #{'A 'b 'c 'd}
          #{'A 'b 'c 'D}
@@ -4072,6 +4074,7 @@ d--e--b
          #{'A 'b 'C 'd}})
    #{#{'B 'D}
      #{'b 'd}})
+```
 
 解答
 ```clojure
@@ -4164,11 +4167,13 @@ d--e--b
         first
         (map #(set (to-letter-codes %)))
         (into #{}))))
+```
 
 問題138. Squares Squared ;; 自乗の正方形
 
 2つの整数(それぞれスタートとエンド)を引数とし、文字列のベクトルを作成する関数を作る。文字列のベクトルは45度回転した正方形で数字はスタートの数字からエンドの数字までが含まれる。自乗の結果の桁上がりについてはそれぞれの桁の数字を並べる。数字の足りない部分はアステリスクで埋める。描画の方向は時計回りで、最初の方向は右下である。
 
+```
 (= (__ 2 2) ["2"])
 
 (= (__ 2 4) [" 2 "
@@ -4196,6 +4201,7 @@ d--e--b
                   " * 1 * "
                   "  * *  "
                   "   *   "])
+```
 
 解答
 ```clojure
@@ -4234,6 +4240,7 @@ d--e--b
           (reduce str
              (for [x (range 0 sq-size)]
                (get spiral [y x] \space))))))))
+```
 
 問題127. Love Triangle ;; 愛の三角形
 
@@ -4261,6 +4268,7 @@ d--e--b
 
 もし岩からミネラルが取れない場合、関数はnilを返します。
 
+```
 (= 10 (__ [15 15 15 15 15]))
 ; 1111      1111
 ; 1111      *111
@@ -4310,6 +4318,7 @@ d--e--b
 ; 00000  ->  00000
 ; 11111      11111
 ; 00000      00000
+```
 
 解答
 ```clojure
@@ -4341,11 +4350,13 @@ d--e--b
         (if (= 1 result)
           nil
           result)))))
+```
 
 問題152. Latin Slicing ;; ラテン方格スライシング
 
 ラテン方格とはn次の場合n x nの配列でn種類の要素が行や列で重ならずに入っているもののことです。例えば以下の例では最初の1つだけがラテン方格です。
 
+```
 1:
 A B C
 B C A
@@ -4360,6 +4371,7 @@ C A C
 A B C
 B D A
 C A B
+```
 
 Vをそのようなベクトルのベクトルとします。長さは任意です。つらなる行が以下の条件が満たされたとき整列しているとします。
 
@@ -4375,6 +4387,7 @@ Vの順序は維持される。
 
 Lを2次以上のラテン方格とします。もしVの整列がLと同値のサブスクエアを含むときVはLを含むと言います。例えばVが[[1 2 3][2 3 1 2 1][3 1 2]]のとき9つの整列があります。カギ括弧を省略しました。
 
+```
         1              2              3
 
       1 2 3          1 2 3          1 2 3
@@ -4388,11 +4401,13 @@ Lを2次以上のラテン方格とします。もしVの整列がLと同値の�
       1 2 3          1 2 3          1 2 3
   C   2 3 1 2 1    2 3 1 2 1    2 3 1 2 1
           3 1 2        3 1 2        3 1 2
+```
 
 A1整列はラテン方格[[1 2 3][2 3 1][3 1 2]]を含みます。整列A2, A3, B1, B2, B3はラテン方格を含みません。整列C1, C2, C3は[[2 1][1 2]]を含みます。したがってVは3次のラテン方格1個と2次のラテン方格3個を含みます。
 
 今回の関数はベクトルのベクトルVを引数として受け取り、整数のキーと値のマップを返します。キーはVに含まれるラテン方格の次数で、値はその次数の異なったラテン方格の数です。もしVにラテン方格が含まれない場合、空のマップが返されます。例の場合、正しいアウトプットは{3 1, 2 1}になり、{3 1, 2 3}ではありません。
 
+```
 (= (__ '[[A B C D]
          [A C D B]
          [B A D C]
@@ -4444,6 +4459,7 @@ A1整列はラテン方格[[1 2 3][2 3 1][3 1 2]]を含みます。整列A2, A3,
               [1 8 5 2 4]
               [8 1 2 4 5]])
    {4 1, 3 1, 2 7})
+```
 
 解答
 ```clojure
@@ -4487,4 +4503,4 @@ A1整列はラテン方格[[1 2 3][2 3 1][3 1 2]]を含みます。整列A2, A3,
                      (let [c (count (filter is-latin-square? (val entry)))]
                        (if (pos? c) {(key entry) c} {})))
                    (group-by count (set (mapcat #(slice %) (trans square))))))))
-
+```
