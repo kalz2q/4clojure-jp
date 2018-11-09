@@ -18,7 +18,8 @@ true
 (= (- 10 (* 2 3)) __)
 ```
 
-解答```clojure
+解答
+```clojure
 4
 ```
 
@@ -30,7 +31,8 @@ clojureの文字列はJavaの文字列です。Javaの文字列メソッドは�
 (= __ (.toUpperCase "hello world"))
 ```
 
-解答```clojure
+解答
+```clojure
 "HELLO WORLD"
 ```
 
@@ -42,7 +44,8 @@ clojureの文字列はJavaの文字列です。Javaの文字列メソッドは�
 (= (list __) '(:a :b :c))
 ```
 
-解答```clojure
+解答
+```clojure
 :a :b :c
 ```
 
@@ -56,7 +59,8 @@ clojureの文字列はJavaの文字列です。Javaの文字列メソッドは�
 (= __ (conj '(3 4) 2 1))
 ```
 
-解答```clojure
+解答
+```clojure
 '(1 2 3 4)
 ```
 
@@ -68,7 +72,8 @@ clojureの文字列はJavaの文字列です。Javaの文字列メソッドは�
 (= [__] (list :a :b :c) (vec '(:a :b :c)) (vector :a :b :c))
 ```
 
-解答```clojure
+解答
+```clojure
 :a :b :c
 ```
 
@@ -86,7 +91,8 @@ clojureの文字列はJavaの文字列です。Javaの文字列メソッドは�
 (= __ (conj [1 2] 3 4))
 ```
 
-解答```clojure
+解答
+```clojure
 [1 2 3 4]
 ```
 
@@ -100,7 +106,8 @@ clojureの文字列はJavaの文字列です。Javaの文字列メソッドは�
 (= __ (clojure.set/union #{:a :b :c} #{:b :c :d}))
 ```
 
-解答```clojure
+解答
+```clojure
 #{:a :b :c :d}
 ```
 
@@ -110,7 +117,8 @@ clojureの文字列はJavaの文字列です。Javaの文字列メソッドは�
 (= #{1 2 3 4} (conj #{1 4 3} __))
 ```
 
-解答```clojure
+解答
+```clojure
 2
 ```
 
@@ -126,7 +134,8 @@ clojureの文字列はJavaの文字列です。Javaの文字列メソッドは�
 (= __ (:b {:a 10, :b 20, :c 30}))
 ```
 
-解答```clojure
+解答
+```clojure
 20
 ```
 
@@ -138,7 +147,8 @@ clojureの文字列はJavaの文字列です。Javaの文字列メソッドは�
 (= {:a 1, :b 2, :c 3} (conj {:a 1} __ [:c 3]))
 ```
 
-解答```clojure
+解答
+```clojure
 {:b 2}
 ```
 
@@ -154,7 +164,8 @@ Clojureのコレクションはシーケンス機能があり、シーケンス�
 (= __ (last (list 1 2 3)))
 ```
 
-解答```clojure
+解答
+```clojure
 3
 ```
 
@@ -166,7 +177,8 @@ Clojureのコレクションはシーケンス機能があり、シーケンス�
 (= __ (rest [10 20 30 40]))
 ```
 
-解答```clojure
+解答
+```clojure
 [20 30 40]
 ```
 
@@ -184,7 +196,8 @@ Clojureはいろんな方法で関数を作れます。
 (= __ ((partial + 5) 3))
 ```
 
-解答```clojure
+解答
+```clojure
 8
 ```
 
@@ -202,7 +215,8 @@ Clojureはいろんな方法で関数を作れます。
 (= (__ 7) 14)
 ```
 
-解答```clojure
+解答
+```clojure
 #(* 2 %)
 
 * 2
@@ -220,7 +234,8 @@ Clojureはいろんな方法で関数を作れます。
 (= (__ "Rhea") "Hello, Rhea!")
 ```
 
-解答```clojure
+解答
+```clojure
 #(str "Hello, " % "!")
 
 (fn [name] (str "Hello, " name "!"))
@@ -238,7 +253,8 @@ Clojureはいろんな方法で関数を作れます。
 (= __ (map #(+ % 5) '(1 2 3)))
 ```
 
-解答```clojure
+解答
+```clojure
 '(6 7 8)
 ```
 
@@ -252,7 +268,8 @@ Clojureはいろんな方法で関数を作れます。
 (= __ (filter #(> % 5) '(3 4 5 6 7)))
 ```
 
-解答```clojure
+解答
+```clojure
 '(6 7)
 ```
 
@@ -271,7 +288,8 @@ Clojureはいろんな方法で関数を作れます。
 (= (__ ["b" "c" "d"]) "d")
 ```
 
-解答```clojure
+解答
+```clojure
 #(nth % (dec (count %)))
 ```
 
@@ -287,7 +305,8 @@ Clojureはいろんな方法で関数を作れます。
 (= (__ [[1 2] [3 4]]) [1 2])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [coll] (first (reverse (vec coll))))
 
 (comp second reverse)
@@ -309,7 +328,8 @@ Clojureはいろんな方法で関数を作れます。
 (= (__ '([1 2] [3 4] [5 6]) 2) [5 6])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [coll n] (first (drop n coll)))
 ```
 
@@ -332,7 +352,8 @@ Clojureはいろんな方法で関数を作れます。
 (= (__ '(:a :b :c)) 3)
 ```
 
-解答```clojure
+解答
+```clojure
 #(reduce + (map (constantly 1) %))
 
 (fn [coll] (reduce + (map (constantly 1) coll)))
@@ -352,7 +373,8 @@ Clojureはいろんな方法で関数を作れます。
 (= (__ [[1 2][3 4][5 6]]) [[5 6][3 4][1 2]])
 ```
 
-解答```clojure
+解答
+```clojure
 #(reduce conj () %)
 
 (fn [coll] (reduce conj () coll))
@@ -375,7 +397,8 @@ Clojureはいろんな方法で関数を作れます。
 (= (__ '(1 10 3)) 14)
 ```
 
-解答```clojure
+解答
+```clojure
 #(reduce + %)
 
 (fn [coll] (reduce + coll))
@@ -396,7 +419,8 @@ Clojureはいろんな方法で関数を作れます。
 (= (__ [1 1 1 3]) '(1 1 1 3))
 ```
 
-解答```clojure
+解答
+```clojure
 #(filter odd? %)
 ```
 
@@ -413,7 +437,8 @@ X個のフィボナッチ数を返す関数を作る。
 (= (__ 8) '(1 1 2 3 5 8 13 21))
 ```
 
-解答```clojure
+解答
+```clojure
 #(take % (map first (iterate (fn [[a b]] [b (+ a b)]) [1 1])))
 ```
 
@@ -435,7 +460,8 @@ X個のフィボナッチ数を返す関数を作る。
 (false? (__ '(:a :b :c)))
 ```
 
-解答```clojure
+解答
+```clojure
 #(= (seq %) (reverse (seq %)))
 ```
 
@@ -454,7 +480,8 @@ X個のフィボナッチ数を返す関数を作る。
 (= (__ '((((:a))))) '(:a))
 ```
 
-解答```clojure
+解答
+```clojure
 #(filter (complement sequential?) (rest (tree-seq sequential? seq %)))
 ```
 
@@ -471,7 +498,8 @@ X個のフィボナッチ数を返す関数を作る。
 (= (__ "$#A(*&987Zf") "AZ")
 ```
 
-解答```clojure
+解答
+```clojure
 #(apply str (re-seq #"[A-Z]+" %))
 ```
 
@@ -488,7 +516,8 @@ X個のフィボナッチ数を返す関数を作る。
 (= (__ [[1 2] [1 2] [3 4] [1 2]]) '([1 2] [3 4] [1 2]))
 ```
 
-解答```clojure
+解答
+```clojure
 #(map first (partition-by identity %))
 ```
 
@@ -505,7 +534,8 @@ X個のフィボナッチ数を返す関数を作る。
 (= (__ [[1 2] [1 2] [3 4]]) '(([1 2] [1 2]) ([3 4])))
 ```
 
-解答```clojure
+解答
+```clojure
 partition-by identity
 ```
 
@@ -523,7 +553,8 @@ partition-by identity
 (= (__ [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4]))
 ```
 
-解答```clojure
+解答
+```clojure
 mapcat #(list % %)
 ```
 
@@ -543,7 +574,8 @@ mapcat #(list % %)
 (= (__ [44 33] 2) [44 44 33 33])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [s n] (mapcat #(repeat n %) s))
 ```
 
@@ -561,7 +593,8 @@ mapcat #(list % %)
 ```
 
 
-解答```clojure
+解答
+```clojure
 #(take (- %2 %1) (iterate inc %1))
 ```
 
@@ -577,7 +610,8 @@ Clojureはローカルな名前付きの変数をletというスペシャル・�
 (= __ (let [x 21] (let [y 3] (/ x y))))
 ```
 
-解答```clojure
+解答
+```clojure
 7
 ```
 
@@ -594,7 +628,8 @@ Clojureはローカルな名前付きの変数をletというスペシャル・�
 (= 1 (let __ z))
 ```
 
-解答```clojure
+解答
+```clojure
 [z 1 y 3 x 7]
 ```
 
@@ -607,7 +642,8 @@ Regexパターンにはスペシャル・マクロのreaderがあります。
 ```
 
 
-解答```clojure
+解答
+```clojure
 "ABC"
 ```
 
@@ -623,7 +659,8 @@ Regexパターンにはスペシャル・マクロのreaderがあります。
 (= (__ 45 67 11) 67)
 ```
 
-解答```clojure
+解答
+```clojure
 #(last (sort %&))
 ```
 
@@ -643,7 +680,8 @@ Regexパターンにはスペシャル・マクロのreaderがあります。
 (= (__ [30 20] [25 15]) [30 25 20 15])
 ```
 
-解答```clojure
+解答
+```clojure
 #(mapcat vector %1 %2)
 ```
 
@@ -661,7 +699,8 @@ Regexパターンにはスペシャル・マクロのreaderがあります。
 (= (__ :z [:a :b :c :d]) [:a :z :b :z :c :z :d])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [v coll] (butlast (mapcat #(vector % v) coll)))
 ```
 
@@ -677,7 +716,8 @@ Regexパターンにはスペシャル・マクロのreaderがあります。
 (= (__ [1 2 3 4 5 6] 4) [1 2 3 5 6])
 ```
 
-解答```clojure
+解答
+```clojure
 #(apply concat (partition-all (dec %2) %2 %))
 ```
 
@@ -696,7 +736,8 @@ Regexパターンにはスペシャル・マクロのreaderがあります。
 ```
 
 
-解答```clojure
+解答
+```clojure
 #(apply * (range 1 (inc %)))
 ```
 
@@ -713,7 +754,8 @@ Regexパターンにはスペシャル・マクロのreaderがあります。
 (= (__ (range 10) 5) '((0 5) (1 6) (2 7) (3 8) (4 9)))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn deinterleave [coll n]
   (for [i (range n)] (take-nth n (drop i coll))))
 ```
@@ -733,7 +775,8 @@ Regexパターンにはスペシャル・マクロのreaderがあります。
 (= (__ -4 '(:a :b :c)) '(:c :a :b))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [n coll]
   (take (count coll) (drop (mod n (count coll)) (cycle coll))))
 ```
@@ -746,7 +789,8 @@ iterate関数を用いて遅延評価の無限シーケンスが作成できる�
 (= __ (take 5 (iterate #(+ 3 %) 1)))
 ```
 
-解答```clojure
+解答
+```clojure
 [1 4 7 10 13]
 ```
 
@@ -763,7 +807,8 @@ iterate関数を用いて遅延評価の無限シーケンスが作成できる�
 (= [1 2 3] ((__ take) [1 2 3 4 5] 3))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [f]
   (fn [& args] (apply f (reverse args))))
 ```
@@ -782,7 +827,8 @@ iterate関数を用いて遅延評価の無限シーケンスが作成できる�
 (not (contains? [1 2 4] __))
 ```
 
-解答```clojure
+解答
+```clojure
 4
 ```
 
@@ -796,7 +842,8 @@ iterate関数を用いて遅延評価の無限シーケンスが作成できる�
 (= __ (some #(when (even? %) %) [5 6 7 8]))
 ```
 
-解答```clojure
+解答
+```clojure
 6
 ```
 
@@ -814,7 +861,8 @@ iterate関数を用いて遅延評価の無限シーケンスが作成できる�
 (= (__ 2 [[1 2] [3 4] [5 6]]) [[[1 2] [3 4]] [[5 6]]])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [n coll]
   [(take n coll) (drop n coll)])
 ```
@@ -831,7 +879,8 @@ iterate関数を用いて遅延評価の無限シーケンスが作成できる�
 (= (set (__ [[1 2] :a [3 4] 5 6 :b])) #{[[1 2] [3 4]] [:a :b] [5 6]})
 ```
 
-解答```clojure
+解答
+```clojure
 (comp vals (partial group-by type))
 ```
 
@@ -843,7 +892,8 @@ iterate関数を用いて遅延評価の無限シーケンスが作成できる�
 (= [1 2 [3 4 5] [1 2 3 4 5]] (let [[a b & c :as d] __] [a b c d]))
 ```
 
-解答```clojure
+解答
+```clojure
 (range 1 6)
 ```
 
@@ -856,7 +906,8 @@ Let bindings and function parameter lists support destructuring.
 (= [2 4] (let [[a b c d e] [0 1 2 3 4]] __))
 ```
 
-解答```clojure
+解答
+```clojure
 [c e]
 ```
 
@@ -874,7 +925,8 @@ Let bindings and function parameter lists support destructuring.
 (= (__ [7 6 5 4]) [])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn longest-subseq [coll]
   (let [take-seq (fn [n pred coll]
                    (let [hits (count (take-while #(apply pred %) (partition n 1 coll)))]
@@ -900,7 +952,8 @@ Let bindings and function parameter lists support destructuring.
 (= (__ 3 (range 8)) '((0 1 2) (3 4 5)))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn p [n c] (when (and (seq c) (>= (count c) n)) (cons (take n c) (p n (drop n c)))))
 ```
 
@@ -918,7 +971,8 @@ Let bindings and function parameter lists support destructuring.
 (= (__ '([1 2] [1 3] [1 3])) {[1 2] 1, [1 3] 2})
 ```
 
-解答```clojure
+解答
+```clojure
 #(apply merge-with + (for [e %] {e 1}))
 ```
 
@@ -938,7 +992,8 @@ Let bindings and function parameter lists support destructuring.
 (= (__ (range 50)) (range 50))
 ```
 
-解答```clojure
+解答
+```clojure
 reduce #(if ((set %1) %2) %1 (conj %1 %2)) []
 ```
 
@@ -950,7 +1005,8 @@ reduce #(if ((set %1) %2) %1 (conj %1 %2)) []
 (= __ ((fn foo [x] (when (> x 0) (conj (foo (dec x)) x))) 5))
 ```
 
-解答```clojure
+解答
+```clojure
 [5 4 3 2 1]
 ```
 
@@ -970,7 +1026,8 @@ reduce #(if ((set %1) %2) %1 (conj %1 %2)) []
 (= "HELLO" ((__ #(.toUpperCase %) #(apply str %) take) 5 "hello world"))
 
 ```
-解答```clojure
+解答
+```clojure
 (fn [& fs] (reduce (fn [f g] #(f (apply g %&))) fs))
 ```
 
@@ -988,7 +1045,8 @@ reduce #(if ((set %1) %2) %1 (conj %1 %2)) []
 (= ["HELLO" 5] ((__ #(.toUpperCase %) count) "hello"))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [& fs]
   (fn [& as] (map #(apply % as) fs)))
 ```
@@ -1007,7 +1065,8 @@ reduce関数と似た関数で、途中の結果を返す関数を作る。2個�
 (= (last (__ * 2 [3 4 5])) (reduce * 2 [3 4 5]) 120)
 ```
 
-解答```clojure
+解答
+```clojure
 (fn reduce-
   ([f coll]
     (reduce- f (first coll) (next coll)))
@@ -1032,7 +1091,8 @@ reduce関数と似た関数で、途中の結果を返す関数を作る。2個�
 (= (__ [:foo :bar] ["foo" "bar" "baz"]) {:foo "foo", :bar "bar"})
 ```
 
-解答```clojure
+解答
+```clojure
 #(apply hash-map (interleave %1 %2))
 ```
 
@@ -1050,7 +1110,8 @@ reduce関数と似た関数で、途中の結果を返す関数を作る。2個�
 (= (take 9 (__ #(inc (mod % 3)) 1)) (take 9 (cycle [1 2 3])))
 ```
 
-解答```clojure(fn iterate- [f init]
+解答
+```clojure(fn iterate- [f init]
   (cons init
     (lazy-seq
       (iterate- f (f init)))))
@@ -1072,7 +1133,8 @@ reduce関数と似た関数で、途中の結果を返す関数を作る。2個�
    {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]})
 ```
 
-解答```clojure
+解答
+```clojure
 #(apply merge-with into (for [v %2] {(% v) [v]}))
 ```
 
@@ -1090,7 +1152,8 @@ reduce関数は引数として関数とオプショナルな初期値をとる�
 (=  6 (reduce __ 1 [2 3]))
 ```
 
-解答```clojure
+解答
+```clojure
 +
 ```
 
@@ -1114,7 +1177,8 @@ Clojureにたくさんのシーケンス型があり、それぞれ違いがあ�
 (= [:map :set :vector :list] (map __ [{} #{} [] ()]))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [c]
   (cond
     (= (get (conj c [:t "t"]) :t) "t") :map
@@ -1138,7 +1202,8 @@ Clojureにたくさんのシーケンス型があり、それぞれ違いがあ�
 (= (__ 1023 858) 33)
 ```
 
-解答```clojure
+解答
+```clojure
 (fn gcd [a b] (if (zero? b) a (recur b (mod a b))))
 ```
 
@@ -1154,7 +1219,8 @@ Clojureにたくさんのシーケンス型があり、それぞれ違いがあ�
 (= (last (__ 100)) 541)
 ```
 
-解答```clojure
+解答
+```clojure
 (fn prime-gen [cnt]
   (let [prime? (fn [n]
                  (not (some #(and
@@ -1177,7 +1243,8 @@ Clojureのループ構造はスタック1つを使うrecur関数しかない。�
       result)))
 ```
 
-解答```clojure
+解答
+```clojure
 [7 6 5 4 3]
 ```
 
@@ -1195,7 +1262,8 @@ Clojureのループ構造はスタック1つを使うrecur関数しかない。�
 (= (__ concat {:a [3], :b [6]} {:a [4 5], :c [8 9]} {:b [7]}) {:a [3 4 5], :b [6 7], :c [8 9]})
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [f & ms]
   (reduce (fn [m1 m2]
             (reduce (fn [m [k v]]
@@ -1218,7 +1286,8 @@ Clojureのループ構造はスタック1つを使うrecur関数しかない。�
 (= (__  "Fools fall for foolish follies.") ["fall" "follies" "foolish" "Fools" "for"])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [s]
   (sort-by clojure.string/lower-case
     (re-seq #"[A-Za-z]+" s)))
@@ -1232,7 +1301,8 @@ macro(->)は式xを順次フォームの中に挿入していきます。まず�
 (= (__ (sort (rest (reverse [2 5 4 1 3 6])))) (-> [2 5 4 1 3 6] (reverse) (rest) (sort) (__)) 5)
 ```
 
-解答```clojure
+解答
+```clojure
 last
 
 問題72. Rearranging Code: ->> ;; スレッドラストマクロ
@@ -1243,7 +1313,8 @@ macro(->>)は式xを順次フォームの中に挿入していきます。まず
 (= (__ (map inc (take 3 (drop 2 [2 5 4 1 3 6])))) (->> [2 5 4 1 3 6] (drop 2) (take 3) (map inc) (__)) 11)
 ```
 
-解答```clojure
+解答
+```clojure
 reduce +
 ```
 
@@ -1281,7 +1352,8 @@ reduce +
             [:o :x :o]]))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn tic-tac-toe [board]
   (let [same? (fn [sec] (if (apply = sec) (first sec) nil))
         rows (map same? board)
@@ -1301,7 +1373,8 @@ reduce +
 (= (__ "15,16,25,36,37") "16,25,36")
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [s]
   (let [nums (map #(Integer/parseInt %) (clojure.string/split s #","))
         psquare? (fn [n] (let [sqrt (Math/sqrt n)] (= (Math/floor sqrt) sqrt)))
@@ -1323,7 +1396,8 @@ reduce +
 (= (__ 99) 60)
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [n]
   (if (= n 1)
     1
@@ -1346,7 +1420,8 @@ trampoline関数は関数fと複数のパラメーターを引数にとり、f�
      (trampoline foo [] 1)))
 ```
 
-解答```clojure
+解答
+```clojure
 (range 1 12 2)
 ```
 
@@ -1363,7 +1438,8 @@ trampoline関数は関数fと複数のパラメーターを引数にとり、f�
    #{#{"veer" "ever"} #{"lake" "kale"} #{"mite" "item"}})
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [ws]
   (set (map (comp set val)
             (remove (comp #{1} count val) (group-by frequencies ws)))))
@@ -1389,7 +1465,8 @@ trampoline関数は関数fと複数のパラメーターを引数にとり、f�
   [true false true false true false])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [f & args] (loop [f (apply f args)] (if (fn? f) (recur (f)) f)))
 ```
 
@@ -1411,7 +1488,8 @@ trampoline関数は関数fと複数のパラメーターを引数にとり、f�
        [5 7 3 5 1 4]))) ; 3->4->3->2->7->1
 ```
 
-解答```clojure
+解答
+```clojure
 (fn collapse [p] (let [combine (fn [a b] (map + (map #(apply min %) (partition 2 1 a)) b))] (first (reduce combine (reverse p)))))
 ```
 
@@ -1431,7 +1509,8 @@ trampoline関数は関数fと複数のパラメーターを引数にとり、f�
 (= (__ 8128) true)
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [n]
   (= n (reduce +
     (filter
@@ -1454,7 +1533,8 @@ trampoline関数は関数fと複数のパラメーターを引数にとり、f�
 ```
 
 
-解答```clojure
+解答
+```clojure
 (fn [a b] (set (filter #(contains? b %) a)))
 ```
 
@@ -1480,7 +1560,8 @@ cat -> cot -> coat -> oat -> hat -> hot -> hog -> dog
 (= false (__ #{"share" "hares" "hare" "are"}))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn find-chain [words]
   (let [lev (fn lev [s1 s2]
               (cond (empty? s1) (count s2)
@@ -1518,7 +1599,8 @@ cat -> cot -> coat -> oat -> hat -> hot -> hog -> dog
 (= true (__ true true true false))
 ```
 
-解答```clojure
+解答
+```clojure
 not=
 ```
 
@@ -1543,7 +1625,8 @@ not=
        ["uncle" "cousin"] ["son" "grandson"]}))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [rel]
   (let [roots (into {} (for [[k v] (group-by first rel)] [k (mapv second v)]))
         children (fn children [rels e]
@@ -1568,7 +1651,8 @@ not=
 (= (count (__ (into #{} (range 10)))) 1024)
 ```
 
-解答```clojure
+解答
+```clojure
 (fn powerset [s]
   (reduce #(into % (for [subset %] (conj subset %2))) #{#{}} s))
 ```
@@ -1589,7 +1673,8 @@ not=
 (= (__ 3) false)
 ```
 
-解答```clojure
+解答
+```clojure
 (fn happy? [n]
   (letfn [(digits [n]
             (map #(Integer/parseInt (str %)) (str n)))
@@ -1612,7 +1697,8 @@ not=
 (= (__ #{[1 2] [2 3]} #{[2 3] [3 4]}) #{[1 2] [3 4]})
 ```
 
-解答```clojure
+解答
+```clojure
 #(clojure.set/union (clojure.set/difference %1 %2) (clojure.set/difference %2 %1))
 ```
 
@@ -1646,7 +1732,8 @@ not=
 (= false (__ [[1 2] [2 3] [2 4] [2 5]]))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn eulerian [edges]
   (let [degrees (fn [edges]
                   (apply merge-with + {} (for [[a b] edges
@@ -1676,7 +1763,8 @@ not=
 ```
 
 
-解答```clojure
+解答
+```clojure
 #(set (for [a (vec %1) b (vec %2)] [a b]))
 ```
 
@@ -1705,7 +1793,8 @@ not=
               [:x :y] [:d :a] [:b :e] [:x :a]}))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn fully-connected? [graph]
   (let [nodes (set (apply concat graph))
         full-graph (set (mapcat (fn [[a b :as n]] [n [b a]]) graph))
@@ -1732,7 +1821,8 @@ not=
 (= 48 (__ "XLVIII"))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn read-roman [s]
   (let [numerals {\M 1000 \D 500 \C 100 \L 50 \X 10 \V 5 \I 1}
         nums (partition 2 1 (concat (map numerals s) [0]))]
@@ -1755,7 +1845,8 @@ not=
    '((1 2)(3 4)(5 6)))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn pflatten [tree]
   (if (every? sequential? tree)
     (mapcat pflatten tree)
@@ -1819,7 +1910,8 @@ not=
 ```
 
 
-解答```clojure
+解答
+```clojure
 (fn conway [board]
   (let [cells (set (for [y (range (count board))
                          x (range (count (get board y)))
@@ -1871,7 +1963,8 @@ not=
    false)
 ```
 
-解答```clojure
+解答
+```clojure
 (fn tree? [coll]
   (cond
     (or (seq? coll) (vector? coll))
@@ -1907,7 +2000,8 @@ not=
    false)
 ```
 
-解答```clojure
+解答
+```clojure
 #(= ((fn mirror [[n l r :as tree]] (when tree [n (mirror r) (mirror l)])) %) %)
 ```
 
@@ -1939,7 +2033,8 @@ Write a function which returns the nth row of Pascal's Triangle.
    [1 10 45 120 210 252 210 120 45 10 1])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [n]
   (last (take n (iterate #(map +' `(0 ~@%) `(~@% 0)) [1]))))
 ```
@@ -1963,7 +2058,8 @@ Write a function which returns the nth row of Pascal's Triangle.
    #{#{0 1 2 3 4}})
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [f coll] (into #{} (map set (vals (group-by f coll)))))
 ```
 
@@ -1980,7 +2076,8 @@ Write a function which returns the nth row of Pascal's Triangle.
 (= (__ 999 99) [9 8 9 0 1])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [a b] (mapv #(Integer/parseInt (str %)) (str (* a b))))
 ```
 
@@ -2001,7 +2098,8 @@ Write a function which returns the nth row of Pascal's Triangle.
 (== (__ 7 5/7 2 3/5) 210)
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [& args]
   (let [gcd (fn [a b] (if (zero? b) a (recur b (mod a b))))]
     (/ (reduce * args) (reduce gcd args))))
@@ -2040,7 +2138,8 @@ Write a function which returns the nth row of Pascal's Triangle.
 (= (__ "gaattctaatctc" "caaacaaaaaattt") 9)
 ```
 
-解答```clojure
+解答
+```clojure
 (memoize
   (fn lev [s1 s2]
     (cond
@@ -2064,7 +2163,8 @@ Javaではオブジェクトの名前はキャメルケースでfirldsLikeThis�
 (= (__ "leaveMeAlone") "leaveMeAlone")
 ```
 
-解答```clojure
+解答
+```clojure
 #(let [words (clojure.string/split % #"-")] 
     (str (first words) 
          (apply str (map clojure.string/capitalize (drop 1 words)))))
@@ -2091,7 +2191,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
                                     #{:a "abc"} #{:a "efg"} #{"abc" "efg"}})
 ```
 
-解答```clojure
+解答
+```clojure
 (fn combinations [k s]
   (cond
     (zero? k) #{#{}}
@@ -2121,7 +2222,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
 (= "XLVIII" (__ 48))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [n]
   (let [numerals {"M" 1000 "CM" 900 "D" 500 "CD" 400 "C" 100 "XC" 90 "L" 50 "XL" 40 "X" 10 "IX" 9 "V" 5 "IV" 4 "I" 1}
         dec->roman (fn [n]
@@ -2148,7 +2250,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
 (= {:a [1 2 3], :b [], :c [4]} (__ [:a 1 2 3 :b :c 4]))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn kv [acc k [v & vs]]
   (cond (nil? v) acc
         (keyword? v) (kv (assoc acc v []) v vs)
@@ -2181,7 +2284,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
 (= 5 (__ 9 12)) ; 9 11 22 24 12
 ```
 
-解答```clojure
+解答
+```clojure
 (fn find-path [s e]
   (loop [opts [s] depth 1]
     (if (some #{e} opts)
@@ -2207,7 +2311,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
 (= [1 2 4 8 16] (map #((__ %) 2) [0 1 2 3 4]))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [n] (fn [b] (int (Math/pow b n))))
 ```
 
@@ -2227,7 +2332,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
           (iterate inc 20))) ;; at least as large as 20
 ```
 
-解答```clojure
+解答
+```clojure
 (fn lazy-search [& colls]
   (if (= 1 (count colls))
     (first (first colls))
@@ -2253,7 +2359,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
 (= 338 (count (nth (__ [3 2]) 15)))
 ```
 
-解答```clojure
+解答
+```clojure
 #(rest (iterate (fn [coll] (mapcat (juxt count first) (partition-by identity coll))) %))
 
 ```
@@ -2297,7 +2404,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
                         "_ _ f _ # _ _"]))
 ```
 
-解答```clojure(fn [w p]
+解答
+```clojure(fn [w p]
   (let [sm (map #(replace {\space "" \_ \.} %) p)
         co (apply map list sm)
         pl (mapcat #(take-nth 2 (partition-by #{\#} %)) (concat sm co))]
@@ -2332,7 +2440,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
    '(-10 (1 (2 3 (4)))))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [n s]
   (second
    ((fn sequs [n s]
@@ -2367,7 +2476,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
      (=  "" (str (__))))
 ```
 
-解答```clojure
+解答
+```clojure
 #(when %&
    (reify
      clojure.lang.ISeq
@@ -2395,7 +2505,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
          ["this" "is" "a" "sentence" "i" "wrote"]))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn gtw [n f [h & t]]
   (when-not (or (zero? n) (and (= n 1) (f h)))
     (cons h (gtw (if (f h) (dec n) n) f t))))
@@ -2424,7 +2535,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
    [0 1 2 3 4 5 6 7 8 9 11 22 33 44 55 66 77 88 99 101])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [n]
   (let [digits (map #(Integer/parseInt (str %)) (str n))
         size (int (/ (count digits) 2))
@@ -2445,7 +2557,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
 (= 1103 (nth (filter __ (range)) 15))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn balanced-prime? [n]
   (let [factors (cons 2 (iterate (partial + 2) 3))
         prime? (fn [n] (not-any? #(zero? (mod n %))
@@ -2504,7 +2617,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
               "# # # #M"]))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn cat-n-mouse [grid]
   (let [neighbors (fn [[x y]] [[(inc x) y] [(dec x) y] [x (inc y)] [x (dec y)]])
         parts (for [y (range (count grid))
@@ -2543,7 +2657,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
         (take 2)))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn map- [f coll]
   (lazy-seq
     (when-let [s (seq coll)]
@@ -2582,7 +2697,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
    #{[2 2] [1 1]})
 ```
 
-解答```clojure
+解答
+```clojure
 (fn ttt-win [p b]
   (let [win? (fn [board]
                (let [same? (fn [sec] (if (apply = sec) (first sec) nil))
@@ -2612,7 +2728,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
 (= 50 (__ (range 1000)))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn sum-square [coll]
   (let [digits (fn [n] (map #(- (int %) 48) (str n)))
         square #(* % %)
@@ -2646,7 +2763,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
 ```
 
 
-解答```clojure
+解答
+```clojure
 (fn [form]
   (fn [values]
     (let [env (merge {'+ + '- - '* * '/ /} values)]
@@ -2678,7 +2796,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
 (= 65535 (__ "1111111111111111"))
 ```
 
-解答```clojure
+解答
+```clojure
 #(Integer/parseInt % 2)
 ```
 
@@ -2714,7 +2833,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
          [b w w w]] 'b))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn reversi [board p]
   (let [o '{b w w b}
         d (for [y [-1 0 1] x (if (= 0 y) [-1 1] [-1 0 1])] [y x])
@@ -2740,7 +2860,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
 (= (str '__) (__))
 ```
 
-解答```clojure
+解答
+```clojure
 ;; The most common quine
 (fn [x] (str x x)) '(fn [x] (str x x))
 ```
@@ -2754,7 +2875,8 @@ take-while関数はシーケンスをフィルターするのに大変有効で�
   (and (= (class x) x) x))
 ```
 
-解答```clojure
+解答
+```clojure
 Class
 ```
 
@@ -2779,7 +2901,8 @@ Class
                      S8 S9 ST SJ SQ SK SA]))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn card [[s r]]
   (let [suits (zipmap (map str "SHCD") [:spade :heart :club :diamond])
         ranks (zipmap (map str (concat (range 2 10) "TJQKA")) (range 13))]
@@ -2827,7 +2950,8 @@ Class
              #{10 -9 8 -7 6 -5 4 -3 2 -1}))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn sum-subsets [& s]
   (let [ps (fn powerset [s]
              (reduce (fn [acc e] 
@@ -2861,7 +2985,8 @@ Class
                      :same))))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [c v s]
   (mapcat (fn [[a b]] (if (and a b (c a b)) (list a v) (list a)))
           (partition-all 2 1 s)))
@@ -2879,7 +3004,8 @@ Class
 (false? (__ :c {:a nil :b 2}))
 ```
 
-解答```clojure(fn [k m]
+解答
+```clojure(fn [k m]
   (if (contains? m k)
     (= (m k) nil)
     false))
@@ -2899,7 +3025,8 @@ Class
 (= 72 (__ 20 / 2 + 2 + 4 + 8 - 6 - 10 * 9))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn calc [& exp]
   (reduce #(if (fn? %1) (%1 %2) (partial %2 %1)) identity exp))
 ```
@@ -2920,7 +3047,8 @@ Class
 (= [16 18 5 24 15 1] (__ Integer/MAX_VALUE 42))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn to-base [n b]
   (loop [n n num ()]
     (if (zero? n)
@@ -2948,7 +3076,8 @@ Class
                  {:suit :diamond :rank 10} {:suit :heart :rank 4}]))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [trump]
   (fn [hand]
     (let [by-suit (group-by :suit hand)
@@ -2970,7 +3099,8 @@ Class
 (= 256 (__ [2 5 6] [100 10 1])
 ```
 
-解答```clojure
+解答
+```clojure
 #(reduce + (map * %1 %2))
 ```
 
@@ -2986,7 +3116,8 @@ Class
 (= (take 12 (__ 0 inc dec inc dec inc)) [0 1 0 1 0 1 2 1 2 1 2 3])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [x & fs]
   (reductions #(%2 %1) x (cycle fs)))
 ```
@@ -3009,7 +3140,8 @@ Clojureの`for`マクロはシーケンスをベースにシーケンスを作�
         (+ x y)))
 ```
 
-解答```clojure
+解答
+```clojure
 (range 1 40 4)
 ```
 
@@ -3036,7 +3168,8 @@ Clojureの`for`マクロは複数のシーケンスをネストされた方法�
    '{[m 1] [a b c], [m 3] nil})
 ```
 
-解答```clojure
+解答
+```clojure
 #(into {} (for [[k v] % [k2 v2] v] [[k k2] v2]))
 ```
 
@@ -3056,7 +3189,8 @@ Clojureの`for`マクロは複数のシーケンスをネストされた方法�
 (= (take 100 (__ [2 4 2])) (rest (take 101 (__ [2 2]))))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [row]
   (iterate #(map +' `(0 ~@%) `(~@% 0)) row))
 ```
@@ -3086,7 +3220,8 @@ Clojureの`for`マクロは複数のシーケンスをネストされた方法�
   (str (__ (* 10000 10000 1000) 1597 3571)))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [n a b]
   (let [f #(quot (dec n) %)
         g #(/ (*' % (f %) (inc (f %))) 2)]
@@ -3126,7 +3261,8 @@ Clojureの`for`マクロは複数のシーケンスをネストされた方法�
    9102019)
 ```
 
-解答```clojure
+解答
+```clojure
 (let [nextp (fn [n]
               (let [p #(Long. %)
                     s (str n)
@@ -3199,7 +3335,8 @@ Clojureの`for`マクロは複数のシーケンスをネストされた方法�
    false)
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [sets]
   (= (reduce + (map count sets))
      (count (reduce clojure.set/union sets))))
@@ -3224,7 +3361,8 @@ Clojureの`for`マクロは複数のシーケンスをネストされた方法�
 (= (__ [:a :b] [:foo :bar]) {:foo [:a :b] :bar [:a :b]})
 ```
 
-解答```clojure
+解答
+```clojure
 #(apply hash-map (interleave %2 (repeat %1)))
 ```
 
@@ -3241,7 +3379,8 @@ Clojureの`for`マクロは複数のシーケンスをネストされた方法�
 (= (__ [[:foo] {:bar :baz}]) [[[:foo] 0] [{:bar :baz} 1]])
 ```
 
-解答```clojure
+解答
+```clojure
 #(map vector % (range))
 ```
 
@@ -3271,7 +3410,8 @@ Clojureの`for`マクロは複数のシーケンスをネストされた方法�
        5 5))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [f] (fn [& args] (reduce #(apply %1 (vector %2)) f args)))
 ```
 
@@ -3290,7 +3430,8 @@ Clojureの`for`マクロは複数のシーケンスをネストされた方法�
 (clojure.set/subset? #{1 2} __)
 ```
 
-解答```clojure
+解答
+```clojure
 #{1 2}
 ```
 
@@ -3317,7 +3458,8 @@ clojureではnilとfalseだげが条件テストにおいて論理偽になり�
 
 
 
-解答```clojure
+解答
+```clojure
 1
 ```
 
@@ -3406,7 +3548,8 @@ clojureではnilとfalseだげが条件テストにおいて論理偽になり�
 
 ```
 
-解答```clojure
+解答
+```clojure
 (fn run* [dfa]
   (let [run1 (fn [[s acc]] (for [[c n] ((:transitions dfa) s)] [n (str acc c)]))
         accepted (fn [[s acc]] (when ((:accepts dfa) s) acc))]
@@ -3432,7 +3575,8 @@ x < y => :lt
 (= :gt (__ > 0 2))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [f a b]
   (cond
     (f a b) :lt
@@ -3510,7 +3654,8 @@ x < y => :lt
 
 
 
-解答```clojure
+解答
+```clojure
 (fn imat
   ([f] (imat f 0 0))
   ([f r c] (imat f r c -1 -1))
@@ -3539,7 +3684,8 @@ x < y => :lt
        [[1 4] [6 6] [9 11] [13 17] [19 19]])
 ```
 
-解答```clojure
+解答
+```clojure
 (fn intervals [s]
   (reduce (fn [memo e]
             (let [memo (if (empty? memo) [[e e]] memo)
@@ -3562,7 +3708,8 @@ x < y => :lt
   (let [[__] [inc 2]] (__)))
 ```
 
-解答```clojure
+解答
+```clojure
 f vs
 ```
 
@@ -3592,7 +3739,8 @@ f vs
 (not (__ "["))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn balanced? [s]
   (let [p {\( \) \[ \] \{ \}}
         a (set "()[]{}")]
@@ -3649,7 +3797,8 @@ f vs
 (= :straight-flush (__ ["HA" "HK" "HQ" "HJ" "HT"]))
 ```
 
-解答```clojure
+解答
+```clojure
 (fn [h]
   (let [[s r] (apply map list h)
         rs (set (map frequencies (partition 5 1 "A23456789TJQKA")))
@@ -3695,7 +3844,8 @@ There is an interesting pattern in the numbers!
 
 ```
 
-解答```clojure
+解答
+```clojure
 (fn gen-parens
   ([n] (if (= 0 n) #{""} (set (gen-parens n 0))))
   ([n open]
@@ -3822,7 +3972,8 @@ d--e--b
                  (n)
                  (o))))))
 
-解答```clojure
+解答
+```clojure
 (fn [root tree]
   (letfn [(find-parent [r t]
             (if (> (count t) 1)
@@ -3922,7 +4073,8 @@ d--e--b
    #{#{'B 'D}
      #{'b 'd}})
 
-解答```clojure
+解答
+```clojure
 (fn veitch-pls [table]
   (let [size (count (first table))
         pow-2 (fn [n] (first (drop n (iterate #(* % 2) 1))))
@@ -4045,7 +4197,8 @@ d--e--b
                   "  * *  "
                   "   *   "])
 
-解答```clojure
+解答
+```clojure
 (fn sqsq [p q]
   (let [dirs (mapcat
                #(repeat %2 %) (cycle [[1 1] [1 -1] [-1 -1] [-1 1]])
@@ -4158,7 +4311,8 @@ d--e--b
 ; 11111      11111
 ; 00000      00000
 
-解答```clojure
+解答
+```clojure
 (fn [coll]
   (let [binary-str (map #(Integer/toBinaryString %) coll)
         board (mapv #(vec (concat (repeat (- (apply max (map count binary-str)) (count %)) \0) %)) binary-str)]
@@ -4291,7 +4445,9 @@ A1整列はラテン方格[[1 2 3][2 3 1][3 1 2]]を含みます。整列A2, A3,
               [8 1 2 4 5]])
    {4 1, 3 1, 2 7})
 
-解答```clojure(fn [square]
+解答
+```clojure
+(fn [square]
   (letfn [(rotate [s]
             (if (every? seq s) (cons (map first s) (rotate (map next s)))))
           (is-latin-square? [s]
