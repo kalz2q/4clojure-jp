@@ -1111,7 +1111,8 @@ reduce関数と似た関数で、途中の結果を返す関数を作る。2個�
 ```
 
 解答
-```clojure(fn iterate- [f init]
+```clojure
+(fn iterate- [f init]
   (cons init
     (lazy-seq
       (iterate- f (f init)))))
@@ -2406,7 +2407,8 @@ n個の要素からなるシーケンスsからすべてのk個の組合せを�
 ```
 
 解答
-```clojure(fn [w p]
+```clojure
+(fn [w p]
   (let [sm (map #(replace {\space "" \_ \.} %) p)
         co (apply map list sm)
         pl (mapcat #(take-nth 2 (partition-by #{\#} %)) (concat sm co))]
@@ -3006,7 +3008,8 @@ Class
 ```
 
 解答
-```clojure(fn [k m]
+```clojure
+(fn [k m]
   (if (contains? m k)
     (= (m k) nil)
     false))
